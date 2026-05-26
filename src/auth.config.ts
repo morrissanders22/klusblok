@@ -28,11 +28,13 @@ export const authConfig = {
       const isLoggedIn = !!auth?.user;
       const role = auth?.user?.role;
 
-      const adminOnly = ["/admin"];
-      if (adminOnly.some((p) => nextUrl.pathname.startsWith(p))) {
+      const isAdminPath =
+        nextUrl.pathname === "/admin" ||
+        nextUrl.pathname.startsWith("/admin/");
+      if (isAdminPath) {
         if (!isLoggedIn) {
-          const loginUrl = new URL("/login", nextUrl);
-          loginUrl.searchParams.set("next", nextUrl.pathname);
+          // Send admins to the dedicated admin login (not the regular one)
+          const loginUrl = new URL("/admin-login", nextUrl);
           return Response.redirect(loginUrl);
         }
         return role === "ADMIN";
