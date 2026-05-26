@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: klusblok-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: klusblok
+      POSTGRES_PASSWORD: klusblok
+      POSTGRES_DB: klusblok
+    ports:
+      - "5432:5432"
+    volumes:
+      - klusblok-pgdata:/var/lib/postgresql/data
+
+volumes:
+  klusblok-pgdata:

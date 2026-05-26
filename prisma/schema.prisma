@@ -1,0 +1,191 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CONSUMER
+  CONTRACTOR
+  ADMIN
+}
+
+enum JobStatus {
+  OPEN
+  CLAIMED
+  COMPLETED
+  CANCELLED
+}
+
+enum ClaimStatus {
+  PENDING_PAYMENT
+  ACTIVE
+  EXPIRED
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  OPEN
+  PAID
+  FAILED
+  CANCELLED
+  EXPIRED
+}
+
+enum JobTier {
+  TIER_1
+  TIER_2
+  TIER_3
+  TIER_4
+}
+
+enum JobType {
+  SINGLE
+  PROJECT
+}
+
+model PlatformSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}
+
+model User {
+  id                     String    @id @default(cuid())
+  email                  String    @unique
+  name                   String
+  phone                  String?
+  passwordHash           String
+  role                   Role      @default(CONSUMER)
+  createdAt              DateTime  @default(now())
+
+  // Email verification
+  emailVerified          DateTime?
+  verifyToken            String?   @unique
+
+  // Address (consumer-only fields used when posting a klus)
+  address                String?
+  city                   String?
+  postalCode             String?
+
+  // Contractor-only fields
+  companyName            String?
+  kvkNumber              String?   @unique
+  hasLiabilityInsurance  Boolean   @default(false)
+  insuranceConfirmedAt   DateTime?
+  serviceRadiusKm        Int       @default(50)
+
+  // Profile (klusser)
+  bio                    String?
+  photoUrl               String?
+  specialties            String[]  @default([])
+
+  jobs                   Job[]       @relation("ConsumerJobs")
+  claims                 JobClaim[]  @relation("ContractorClaims")
+  reviewsWritten         Review[]    @relation("ReviewAuthor")
+  reviewsReceived        Review[]    @relation("ReviewSubject")
+}
+
+model Job {
+  id          String    @id @default(cuid())
+  title       String
+  description String
+  city        String
+  address     String
+  postalCode  String?
+  phone       String
+
+  tier        JobTier
+  priceCents  Int
+  type        JobType   @default(SINGLE)
+
+  status      JobStatus @default(OPEN)
+  createdAt   DateTime  @default(now())
+
+  consumerId  String
+  consumer    User      @relation("ConsumerJobs", fields: [consumerId], references: [id], onDelete: Cascade)
+
+  photos      JobPhoto[]
+  services    JobService[]
+  claims      JobClaim[]
+  review      Review?
+
+  @@index([status, createdAt])
+  @@index([city])
+}
+
+model JobPhoto {
+  id        String   @id @default(cuid())
+  url       String
+  order     Int      @default(0)
+  jobId     String
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+}
+
+model JobService {
+  id        String   @id @default(cuid())
+  service   String
+  jobId     String
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+}
+
+model JobClaim {
+  id                  String       @id @default(cuid())
+  jobId               String
+  job                 Job          @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  contractorId        String
+  contractor          User         @relation("ContractorClaims", fields: [contractorId], references: [id], onDelete: Cascade)
+
+  status              ClaimStatus  @default(PENDING_PAYMENT)
+  priceCents          Int
+
+  paidAt              DateTime?
+  expiresAt           DateTime?
+  contractorConfirmedAt DateTime?
+  consumerConfirmedAt   DateTime?
+  completedAt         DateTime?
+
+  createdAt           DateTime     @default(now())
+
+  payment             Payment?
+
+  @@index([jobId, status])
+  @@index([contractorId])
+}
+
+model Payment {
+  id           String         @id @default(cuid())
+  claimId      String         @unique
+  claim        JobClaim       @relation(fields: [claimId], references: [id], onDelete: Cascade)
+
+  provider     String         @default("mollie")
+  providerRef  String?        @unique
+  amountCents  Int
+  status       PaymentStatus  @default(OPEN)
+
+  createdAt    DateTime       @default(now())
+  paidAt       DateTime?
+}
+
+model Review {
+  id           String   @id @default(cuid())
+  jobId        String   @unique
+  job          Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  authorId     String
+  author       User     @relation("ReviewAuthor", fields: [authorId], references: [id], onDelete: Cascade)
+
+  subjectId    String
+  subject      User     @relation("ReviewSubject", fields: [subjectId], references: [id], onDelete: Cascade)
+
+  rating       Int
+  body         String
+  createdAt    DateTime @default(now())
+
+  @@index([subjectId])
+}

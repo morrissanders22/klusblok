@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+build
+dist
+
+.env
+.env.local
+.env*.local
+
+*.log
+.DS_Store
+
+# Prisma local SQLite (in case of dev fallback)
+*.db
+*.db-journal
