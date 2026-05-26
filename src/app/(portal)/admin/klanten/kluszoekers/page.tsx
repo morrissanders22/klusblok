@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Users, MapPin, Briefcase, CheckCircle2 } from "lucide-react";
+import { Users, MapPin, Briefcase, CheckCircle2, Plus, ChevronRight } from "lucide-react";
 
 import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
@@ -20,17 +21,22 @@ export default async function KlanteenKluszoekersPage() {
 
   return (
     <div>
-      <header className="mb-6">
-        <p className="kb-eyebrow flex items-center gap-2">
-          <Users size={12} /> Klanten · Kluszoekers
-        </p>
-        <h1 className="kb-heading text-3xl mt-2">
-          Alle kluszoekers ({kluszoekers.length})
-        </h1>
-        <p className="text-[#5c6878] mt-2">
-          Particulieren die klussen hebben geplaatst of zich hebben
-          aangemeld.
-        </p>
+      <header className="mb-6 flex items-end justify-between flex-wrap gap-4">
+        <div>
+          <p className="kb-eyebrow flex items-center gap-2">
+            <Users size={12} /> Klanten · Kluszoekers
+          </p>
+          <h1 className="kb-heading text-3xl mt-2">
+            Alle kluszoekers ({kluszoekers.length})
+          </h1>
+          <p className="text-[#5c6878] mt-2">
+            Particulieren die klussen hebben geplaatst of zich hebben
+            aangemeld.
+          </p>
+        </div>
+        <Link href="/admin/klanten/nieuw" className="btn-yellow">
+          <Plus size={16} /> Nieuwe klant
+        </Link>
       </header>
 
       <div className="kb-panel !p-0 overflow-hidden">
@@ -51,6 +57,7 @@ export default async function KlanteenKluszoekersPage() {
                 <Th>Klussen</Th>
                 <Th>Geverifieerd</Th>
                 <Th>Aangemeld</Th>
+                <Th>&nbsp;</Th>
               </tr>
             </thead>
             <tbody>
@@ -92,6 +99,14 @@ export default async function KlanteenKluszoekersPage() {
                   </Td>
                   <Td>
                     {new Date(u.createdAt).toLocaleDateString("nl-NL")}
+                  </Td>
+                  <Td>
+                    <Link
+                      href={`/admin/klanten/${u.id}`}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-[#3586b6] hover:underline"
+                    >
+                      Beheer <ChevronRight size={12} />
+                    </Link>
                   </Td>
                 </tr>
               ))}

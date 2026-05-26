@@ -14,3 +14,5 @@ dist
 # Prisma local SQLite (in case of dev fallback)
 *.db
 *.db-journal
+.vercel
+.env*

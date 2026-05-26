@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Users, ShieldCheck, MapPin, Star } from "lucide-react";
+import { Users, ShieldCheck, MapPin, Star, Plus, ChevronRight } from "lucide-react";
 
 import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
@@ -22,17 +22,22 @@ export default async function KlanteenKlussersPage() {
 
   return (
     <div>
-      <header className="mb-6">
-        <p className="kb-eyebrow flex items-center gap-2">
-          <Users size={12} /> Klanten · Klussers
-        </p>
-        <h1 className="kb-heading text-3xl mt-2">
-          Alle klussers ({klussers.length})
-        </h1>
-        <p className="text-[#5c6878] mt-2">
-          Overzicht van alle vakmensen die zich op het platform hebben
-          aangemeld.
-        </p>
+      <header className="mb-6 flex items-end justify-between flex-wrap gap-4">
+        <div>
+          <p className="kb-eyebrow flex items-center gap-2">
+            <Users size={12} /> Klanten · Klussers
+          </p>
+          <h1 className="kb-heading text-3xl mt-2">
+            Alle klussers ({klussers.length})
+          </h1>
+          <p className="text-[#5c6878] mt-2">
+            Overzicht van alle vakmensen die zich op het platform hebben
+            aangemeld.
+          </p>
+        </div>
+        <Link href="/admin/klanten/nieuw" className="btn-yellow">
+          <Plus size={16} /> Nieuwe klant
+        </Link>
       </header>
 
       <div className="kb-panel !p-0 overflow-hidden">
@@ -54,6 +59,7 @@ export default async function KlanteenKlussersPage() {
                 <Th>Reviews</Th>
                 <Th>Verzekerd</Th>
                 <Th>Aangemeld</Th>
+                <Th>&nbsp;</Th>
               </tr>
             </thead>
             <tbody>
@@ -114,6 +120,14 @@ export default async function KlanteenKlussersPage() {
                     </Td>
                     <Td>
                       {new Date(k.createdAt).toLocaleDateString("nl-NL")}
+                    </Td>
+                    <Td>
+                      <Link
+                        href={`/admin/klanten/${k.id}`}
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#3586b6] hover:underline"
+                      >
+                        Beheer <ChevronRight size={12} />
+                      </Link>
                     </Td>
                   </tr>
                 );
