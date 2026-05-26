@@ -1,10 +1,21 @@
 import Link from "next/link";
-import { ExternalLink, LogOut } from "lucide-react";
+import { ExternalLink, LogOut, ShieldCheck } from "lucide-react";
 
 import { auth, signOut } from "@/auth";
 import { prisma } from "@/lib/db";
-import { getEffectiveMode } from "@/lib/mode";
 import { Logo } from "@/components/Logo";
+
+const ROLE_LABEL: Record<string, string> = {
+  ADMIN: "Admin",
+  CONTRACTOR: "Kluszoeker",
+  CONSUMER: "Klusplaatser",
+};
+
+const ROLE_COLOR: Record<string, string> = {
+  ADMIN: "#f6b42c",
+  CONTRACTOR: "#3586b6",
+  CONSUMER: "#10b981",
+};
 
 export async function PortalTopbar() {
   const session = await auth();
@@ -12,16 +23,12 @@ export async function PortalTopbar() {
 
   const user = await prisma.user.findUnique({
     where: { id: session.user.id },
-    select: {
-      kvkNumber: true,
-      hasLiabilityInsurance: true,
-      role: true,
-      name: true,
-    },
+    select: { role: true, name: true },
   });
   if (!user) return null;
 
-  const mode = await getEffectiveMode(user.role);
+  const roleLabel = ROLE_LABEL[user.role] ?? user.role;
+  const roleColor = ROLE_COLOR[user.role] ?? "#3586b6";
 
   return (
     <header
@@ -31,12 +38,25 @@ export async function PortalTopbar() {
       <div className="h-[64px] flex items-center justify-between px-4 sm:px-8">
         <Link href="/dashboard" className="flex items-center gap-2 lg:hidden">
           <Logo size={24} />
-          <span className="kb-badge kb-badge--yellow text-[10px]">Portal</span>
+          <span
+            className="kb-badge text-[10px]"
+            style={{
+              backgroundColor: `${roleColor}1a`,
+              color: roleColor,
+              border: `1px solid ${roleColor}40`,
+            }}
+          >
+            {roleLabel}
+          </span>
         </Link>
 
         <div className="hidden lg:flex items-center gap-3">
-          <span className="kb-eyebrow !opacity-100">
-            {mode === "klusser" ? "Klusser-modus" : "Kluszoeker-modus"}
+          <span
+            className="text-[11px] uppercase tracking-[2px] font-bold flex items-center gap-1.5"
+            style={{ color: roleColor }}
+          >
+            {user.role === "ADMIN" && <ShieldCheck size={12} />}
+            {roleLabel}
           </span>
         </div>
 
@@ -57,8 +77,11 @@ export async function PortalTopbar() {
               <p className="text-sm font-semibold text-[#1a2535] leading-none">
                 {user.name}
               </p>
-              <p className="text-[11px] text-[#5c6878] mt-1 uppercase tracking-wider">
-                {user.role.toLowerCase()}
+              <p
+                className="text-[11px] mt-1 uppercase tracking-wider"
+                style={{ color: roleColor }}
+              >
+                {roleLabel}
               </p>
             </div>
             <div

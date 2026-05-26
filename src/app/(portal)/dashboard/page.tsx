@@ -6,7 +6,6 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
 import { expireStaleClaims, minutesLeft } from "@/lib/claims";
 import { formatEuro } from "@/lib/services";
-import { getEffectiveMode } from "@/lib/mode";
 
 export const dynamic = "force-dynamic";
 
@@ -16,19 +15,13 @@ export default async function DashboardPage() {
 
   const me = await prisma.user.findUnique({
     where: { id: session.user.id },
-    select: {
-      role: true,
-      kvkNumber: true,
-      hasLiabilityInsurance: true,
-    },
+    select: { role: true },
   });
   if (!me) redirect("/login");
 
-  const mode = await getEffectiveMode(me.role);
-
   await expireStaleClaims();
 
-  if (mode === "klusser") {
+  if (me.role === "CONTRACTOR") {
     return (
       <ContractorDashboard userId={session.user.id} name={session.user.name} />
     );

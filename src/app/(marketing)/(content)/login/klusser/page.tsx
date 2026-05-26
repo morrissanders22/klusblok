@@ -14,12 +14,11 @@ export default function KlusserLoginPage() {
       </Link>
       <header className="mb-6">
         <p className="kb-eyebrow flex items-center gap-2">
-          <Hammer size={12} /> Klusser
+          <Hammer size={12} /> Kluszoeker
         </p>
-        <h1 className="kb-heading text-3xl mt-2">Inloggen als klusser</h1>
+        <h1 className="kb-heading text-3xl mt-2">Inloggen als kluszoeker</h1>
         <p className="text-[#5c6878] mt-2 text-sm">
-          Na inloggen kom je direct in klusser-modus en kun je reageren op
-          open klussen.
+          Na inloggen zie je open klussen waar je op kunt reageren.
         </p>
       </header>
       <div className="kb-panel">

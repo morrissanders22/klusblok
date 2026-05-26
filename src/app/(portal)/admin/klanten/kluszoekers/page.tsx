@@ -24,10 +24,10 @@ export default async function KlanteenKluszoekersPage() {
       <header className="mb-6 flex items-end justify-between flex-wrap gap-4">
         <div>
           <p className="kb-eyebrow flex items-center gap-2">
-            <Users size={12} /> Klanten · Kluszoekers
+            <Users size={12} /> Klanten · Klusplaatsers
           </p>
           <h1 className="kb-heading text-3xl mt-2">
-            Alle kluszoekers ({kluszoekers.length})
+            Alle klusplaatsers ({kluszoekers.length})
           </h1>
           <p className="text-[#5c6878] mt-2">
             Particulieren die klussen hebben geplaatst of zich hebben

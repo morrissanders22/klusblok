@@ -14,12 +14,13 @@ export default function KluszoekerLoginPage() {
       </Link>
       <header className="mb-6">
         <p className="kb-eyebrow flex items-center gap-2">
-          <Home size={12} /> Kluszoeker
+          <Home size={12} /> Klusplaatser
         </p>
-        <h1 className="kb-heading text-3xl mt-2">Inloggen als kluszoeker</h1>
+        <h1 className="kb-heading text-3xl mt-2">
+          Inloggen als klusplaatser
+        </h1>
         <p className="text-[#5c6878] mt-2 text-sm">
-          Na inloggen kom je direct in kluszoeker-modus en kun je je klussen
-          beheren of een nieuwe plaatsen.
+          Na inloggen kun je je klussen beheren of een nieuwe plaatsen.
         </p>
       </header>
       <div className="kb-panel">

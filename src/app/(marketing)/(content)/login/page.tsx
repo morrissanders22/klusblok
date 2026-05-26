@@ -21,14 +21,14 @@ export default function LoginPage() {
       <Suspense fallback={<div className="grid md:grid-cols-2 gap-4">
         <ChoiceCardStatic
           Icon={Home}
-          title="Kluszoeker"
+          title="Klusplaatser"
           description="Ik heb een klus die ik wil plaatsen of beheren."
           href="/login/kluszoeker"
         />
         <ChoiceCardStatic
           Icon={Hammer}
-          title="Klusser"
-          description="Ik ben aannemer en wil reageren op open klussen."
+          title="Kluszoeker"
+          description="Ik ben vakman en wil reageren op open klussen."
           href="/login/klusser"
         />
       </div>}>

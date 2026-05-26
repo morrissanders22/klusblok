@@ -13,14 +13,14 @@ export function LoginChoiceLinks() {
     <div className="grid md:grid-cols-2 gap-4">
       <ChoiceCard
         Icon={Home}
-        title="Kluszoeker"
+        title="Klusplaatser"
         description="Ik heb een klus die ik wil plaatsen of beheren."
         href={`/login/kluszoeker${qs}`}
       />
       <ChoiceCard
         Icon={Hammer}
-        title="Klusser"
-        description="Ik ben aannemer en wil reageren op open klussen."
+        title="Kluszoeker"
+        description="Ik ben vakman en wil reageren op open klussen."
         href={`/login/klusser${qs}`}
       />
     </div>

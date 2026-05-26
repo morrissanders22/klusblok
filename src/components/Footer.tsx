@@ -49,7 +49,14 @@ export function Footer() {
           style={{ fontSize: "11px", color: "rgba(255,255,255,0.15)" }}
           className="w-full sm:w-auto text-center sm:text-right"
         >
-          © {new Date().getFullYear()} Klusblok.nl · Alle rechten voorbehouden
+          © {new Date().getFullYear()} Klusblok.nl · Alle rechten voorbehouden ·{" "}
+          <Link
+            href="/admin-login"
+            style={{ color: "rgba(255,255,255,0.25)" }}
+            className="hover:!text-[#f6b42c] transition-colors"
+          >
+            Admin
+          </Link>
         </p>
       </div>
     </footer>

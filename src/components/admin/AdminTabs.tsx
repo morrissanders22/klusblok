@@ -10,6 +10,8 @@ import {
   ChevronDown,
   Hammer,
   Home,
+  Mail,
+  Plug,
 } from "lucide-react";
 
 type Tab = {
@@ -33,19 +35,37 @@ const TABS: Tab[] = [
     Icon: Users,
     match: (p) => p.startsWith("/admin/klanten"),
     sub: [
-      { href: "/admin/klanten/klussers", label: "Klussers", Icon: Hammer },
+      { href: "/admin/klanten/klussers", label: "Kluszoekers", Icon: Hammer },
       {
         href: "/admin/klanten/kluszoekers",
-        label: "Kluszoekers",
+        label: "Klusplaatsers",
         Icon: Home,
       },
     ],
+  },
+  {
+    href: "/admin/analytics",
+    label: "Analytics",
+    Icon: BarChart3,
+    match: (p) => p.startsWith("/admin/analytics"),
   },
   {
     href: "/admin/prijzen",
     label: "Prijzen",
     Icon: Tag,
     match: (p) => p.startsWith("/admin/prijzen"),
+  },
+  {
+    href: "/admin/emails",
+    label: "E-mails",
+    Icon: Mail,
+    match: (p) => p.startsWith("/admin/emails"),
+  },
+  {
+    href: "/admin/integraties",
+    label: "Integraties",
+    Icon: Plug,
+    match: (p) => p.startsWith("/admin/integraties"),
   },
 ];
 

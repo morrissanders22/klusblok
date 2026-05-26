@@ -14,7 +14,7 @@ import { Logo } from "./Logo";
 const NAV_ITEMS: { label: string; href: string }[] = [
   { label: "Vind een klus", href: "/jobs" },
   { label: "Plaats je klus", href: "/jobs/new" },
-  { label: "Vind klussers", href: "/klussers" },
+  { label: "Vind kluszoekers", href: "/klussers" },
   { label: "Hoe werkt klusblok", href: "/hoe-werkt-het" },
   { label: "Contact", href: "/contact" },
 ];

@@ -19,18 +19,18 @@ export default function RegisterChoicePage() {
         <RoleCard
           href="/register/consumer"
           Icon={Home}
-          title="Particulier"
+          title="Klusplaatser"
           description="Plaats gratis je klus en ontvang reacties van vakmensen."
           bullets={[
             "100% gratis",
             "Reacties binnen 2 uur",
-            "Direct contact met klusser",
+            "Direct contact met de kluszoeker",
           ]}
         />
         <RoleCard
           href="/register/contractor"
           Icon={Hammer}
-          title="Aannemer / klusser"
+          title="Kluszoeker"
           description="Vind klussen bij jou in de buurt. Betaal alleen per claim."
           bullets={[
             "Geen abonnement",
