@@ -57,7 +57,7 @@ function ModeButton({
       value={mode}
       className="flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-md text-xs font-bold transition-all"
       style={{
-        backgroundColor: isActive ? "#f6b42c" : "transparent",
+        backgroundColor: isActive ? "#f7c021" : "transparent",
         color: isActive ? "#1a2535" : "rgba(255,255,255,0.65)",
       }}
     >

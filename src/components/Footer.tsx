@@ -14,7 +14,7 @@ export function Footer() {
     <footer
       style={{
         backgroundColor: "#0f2535",
-        borderTop: "3px solid #f6b42c",
+        borderTop: "3px solid #f7c021",
         padding: "40px 24px",
       }}
     >
@@ -53,7 +53,7 @@ export function Footer() {
           <Link
             href="/admin-login"
             style={{ color: "rgba(255,255,255,0.25)" }}
-            className="hover:!text-[#f6b42c] transition-colors"
+            className="hover:!text-[#f7c021] transition-colors"
           >
             Admin
           </Link>

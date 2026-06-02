@@ -74,7 +74,7 @@ export function PhotoUploader({
           <label
             className="flex flex-col items-center justify-center aspect-square rounded-lg cursor-pointer text-sm font-medium"
             style={{
-              border: `2px dashed ${urls.length < minCount ? "#f6b42c" : "#cbd5e1"}`,
+              border: `2px dashed ${urls.length < minCount ? "#f7c021" : "#cbd5e1"}`,
               backgroundColor:
                 urls.length < minCount ? "#fffbeb" : "transparent",
               color: urls.length < minCount ? "#92400e" : "#5c6878",

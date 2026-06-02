@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-kb-yellow: #fcc419;
-  --color-kb-yellow-hover: #f0a800;
+  --color-kb-yellow: #f7c021;
+  --color-kb-yellow-hover: #e5ad00;
   --color-kb-blue: #3586b6;
   --color-kb-blue-hover: #2672a0;
   --color-kb-navy: #1e4f70;

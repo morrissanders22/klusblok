@@ -20,7 +20,7 @@ export default function ContactPage() {
         >
           <div
             className="w-10 h-10 rounded-lg flex items-center justify-center"
-            style={{ backgroundColor: "#f6b42c", color: "#1a2535" }}
+            style={{ backgroundColor: "#f7c021", color: "#1a2535" }}
           >
             <Mail size={18} />
           </div>

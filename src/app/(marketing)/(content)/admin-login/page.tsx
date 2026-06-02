@@ -10,7 +10,7 @@ export default function AdminLoginPage() {
       <header className="text-center mb-6">
         <div
           className="w-14 h-14 rounded-2xl mx-auto flex items-center justify-center mb-4"
-          style={{ backgroundColor: "#0f2535", color: "#f6b42c" }}
+          style={{ backgroundColor: "#0f2535", color: "#f7c021" }}
         >
           <ShieldCheck size={26} />
         </div>

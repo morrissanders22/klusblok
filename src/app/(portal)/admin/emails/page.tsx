@@ -83,7 +83,7 @@ export default async function EmailsPage() {
           value={reviewMails}
           sublabel="na afgeronde klus"
         />
-        <Stat label="Totaal verzonden" value={totalSent} accent="#f6b42c" />
+        <Stat label="Totaal verzonden" value={totalSent} accent="#f7c021" />
       </section>
 
       <section className="kb-panel">
@@ -133,7 +133,7 @@ export default async function EmailsPage() {
       <section className="kb-panel">
         <h2 className="kb-heading text-xl mb-3">Mailprovider</h2>
         <dl className="space-y-3 text-sm">
-          <Row label="Status" value={isProductionMail ? "Productie" : "Dev (console)"} accent={isProductionMail ? "#10b981" : "#f6b42c"} />
+          <Row label="Status" value={isProductionMail ? "Productie" : "Dev (console)"} accent={isProductionMail ? "#10b981" : "#f7c021"} />
           <Row label="Provider" value={process.env.RESEND_API_KEY ? "Resend" : process.env.SMTP_HOST ? "SMTP" : "Console log"} />
           <Row label="Verzend-domein" value={process.env.MAIL_FROM_DOMAIN ?? "Niet ingesteld"} />
         </dl>

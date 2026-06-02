@@ -21,7 +21,7 @@ import { prisma } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
-const YELLOW = "#fcc419";
+const YELLOW = "#f7c021";
 const BLUE = "#3586b6";
 const NAVY = "#0f2535";
 
@@ -37,7 +37,7 @@ const CATEGORIES = [
   { name: "Schoonmaak", slug: "schoonmaak", img: "/categories/schoonmaak.png" },
   { name: "Verhuizer", slug: "verhuizer", img: "/categories/verhuizer.png" },
   { name: "Metselaar", slug: "metselaar", img: "/categories/metselaar.png" },
-  { name: "Klein onderhoud", slug: "onderhoud", img: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80" },
+  { name: "Klein onderhoud", slug: "onderhoud", img: "/categories/onderhoud.png" },
 ];
 
 const STEPS = [

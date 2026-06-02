@@ -159,7 +159,7 @@ async function ConsumerDashboard({
                       {completed && !job.review && (
                         <Link
                           href={`/reviews/new?claim=${completed.id}`}
-                          className="text-xs font-bold text-[#f6b42c] hover:underline flex items-center gap-1"
+                          className="text-xs font-bold text-[#f7c021] hover:underline flex items-center gap-1"
                         >
                           <Star size={12} /> Review →
                         </Link>

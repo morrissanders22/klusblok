@@ -47,7 +47,7 @@ export async function Nav() {
         </div>
         <div className="flex gap-1.5 items-center">
           {[1, 2, 3, 4, 5].map((s) => (
-            <Star key={s} size={10} fill="#f6b42c" color="#f6b42c" />
+            <Star key={s} size={10} fill="#f7c021" color="#f7c021" />
           ))}
           <span className="ml-1 text-white font-bold text-xs">
             Vakmannen door heel Nederland

@@ -74,7 +74,7 @@ function RoleCard({
     >
       <div
         className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-        style={{ backgroundColor: "#f6b42c", color: "#1a2535" }}
+        style={{ backgroundColor: "#f7c021", color: "#1a2535" }}
       >
         <Icon size={22} />
       </div>

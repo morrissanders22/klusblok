@@ -369,7 +369,7 @@ function Stepper({ step }: { step: number }) {
             <div
               className="h-1 rounded-full mb-2"
               style={{
-                backgroundColor: isDone || isCurrent ? "#f6b42c" : "#e2e8f0",
+                backgroundColor: isDone || isCurrent ? "#f7c021" : "#e2e8f0",
               }}
             />
             <div className="flex items-center gap-1.5">

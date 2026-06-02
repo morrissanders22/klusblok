@@ -72,7 +72,7 @@ export default async function AdminPage() {
           value={formatEuro(stats.payments.thisMonthCents)}
           sublabel={`Week: ${formatEuro(stats.payments.weekCents)}`}
           Icon={TrendingUp}
-          accent="#f6b42c"
+          accent="#f7c021"
         />
         <BigStat
           label="Omzet totaal"
@@ -355,7 +355,7 @@ function SmallStat({
   tone?: "green" | "yellow";
 }) {
   const color =
-    tone === "green" ? "#10b981" : tone === "yellow" ? "#f6b42c" : "#9aa6b5";
+    tone === "green" ? "#10b981" : tone === "yellow" ? "#f7c021" : "#9aa6b5";
   return (
     <div className="kb-panel !p-4 flex items-center justify-between">
       <div>
@@ -404,7 +404,7 @@ function FunnelRow({
             className="h-full rounded-full"
             style={{
               width: `${Math.min(100, pct)}%`,
-              backgroundColor: highlight ? "#f6b42c" : "#3586b6",
+              backgroundColor: highlight ? "#f7c021" : "#3586b6",
             }}
           />
         </div>

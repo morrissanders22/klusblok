@@ -67,7 +67,7 @@ export default async function ClaimPage({
   if (claim.status === "PENDING_PAYMENT") {
     return (
       <div className="max-w-md mx-auto kb-panel text-center mt-10">
-        <Clock size={36} className="mx-auto text-[#f6b42c] mb-4" />
+        <Clock size={36} className="mx-auto text-[#f7c021] mb-4" />
         <h1 className="kb-heading text-2xl mb-2">
           Betaling nog niet voltooid
         </h1>

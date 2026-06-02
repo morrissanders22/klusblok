@@ -16,3 +16,4 @@ dist
 *.db-journal
 .vercel
 .env*
+tsconfig.tsbuildinfo

@@ -28,8 +28,8 @@ export function ReviewForm({ claimId }: { claimId: string }) {
             >
               <Star
                 size={32}
-                fill={n <= rating ? "#f6b42c" : "transparent"}
-                color={n <= rating ? "#f6b42c" : "#cbd5e1"}
+                fill={n <= rating ? "#f7c021" : "transparent"}
+                color={n <= rating ? "#f7c021" : "#cbd5e1"}
                 strokeWidth={2}
               />
             </button>

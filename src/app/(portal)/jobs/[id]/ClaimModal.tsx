@@ -109,7 +109,7 @@ export function ClaimModal({
             </button>
             <p
               className="kb-eyebrow"
-              style={{ color: "#f6b42c", opacity: 1 }}
+              style={{ color: "#f7c021", opacity: 1 }}
             >
               Klus aannemen
             </p>

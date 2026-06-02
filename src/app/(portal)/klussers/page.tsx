@@ -96,8 +96,8 @@ export default async function KlussersPage() {
                         <p className="flex items-center gap-1 text-xs mt-1">
                           <Star
                             size={11}
-                            fill="#f6b42c"
-                            color="#f6b42c"
+                            fill="#f7c021"
+                            color="#f7c021"
                           />
                           <span className="font-bold text-[#92400e]">
                             {avg.toFixed(1)}

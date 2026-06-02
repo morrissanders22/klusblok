@@ -90,7 +90,7 @@ export function AdminTabs() {
                 className="flex items-center gap-2 px-4 py-3 text-sm font-bold transition-colors"
                 style={{
                   color: active ? "#1a2535" : "#5c6878",
-                  borderBottom: `3px solid ${active ? "#f6b42c" : "transparent"}`,
+                  borderBottom: `3px solid ${active ? "#f7c021" : "transparent"}`,
                 }}
               >
                 <tab.Icon size={16} />
@@ -109,7 +109,7 @@ export function AdminTabs() {
                 className="flex items-center gap-2 px-4 py-3 text-sm font-bold transition-colors hover:text-[#1a2535]"
                 style={{
                   color: active ? "#1a2535" : "#5c6878",
-                  borderBottom: `3px solid ${active ? "#f6b42c" : "transparent"}`,
+                  borderBottom: `3px solid ${active ? "#f7c021" : "transparent"}`,
                 }}
               >
                 <tab.Icon size={16} />

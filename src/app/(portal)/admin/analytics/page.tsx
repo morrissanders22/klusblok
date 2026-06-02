@@ -130,7 +130,7 @@ export default async function AnalyticsPage() {
           label="Betaalde claims"
           value={totals.payments.toString()}
           Icon={TrendingUp}
-          accent="#f6b42c"
+          accent="#f7c021"
         />
         <Stat
           label="Omzet 30 dagen"
@@ -172,7 +172,7 @@ export default async function AnalyticsPage() {
         <Sparkline
           buckets={buckets}
           accessor={(b) => b.revenueCents / 100}
-          color="#f6b42c"
+          color="#f7c021"
           format={(v) => `€ ${v.toFixed(0)}`}
         />
       </section>
@@ -212,7 +212,7 @@ export default async function AnalyticsPage() {
                         style={{
                           width: `${pct}%`,
                           backgroundColor:
-                            t.type === "PROJECT" ? "#f6b42c" : "#3586b6",
+                            t.type === "PROJECT" ? "#f7c021" : "#3586b6",
                         }}
                       />
                     </div>

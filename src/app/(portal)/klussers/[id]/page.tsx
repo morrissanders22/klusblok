@@ -155,8 +155,8 @@ export default async function KlusserDetailPage({
                           <Star
                             key={n}
                             size={12}
-                            fill={n <= r.rating ? "#f6b42c" : "transparent"}
-                            color={n <= r.rating ? "#f6b42c" : "#cbd5e1"}
+                            fill={n <= r.rating ? "#f7c021" : "transparent"}
+                            color={n <= r.rating ? "#f7c021" : "#cbd5e1"}
                           />
                         ))}
                       </div>

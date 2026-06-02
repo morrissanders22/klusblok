@@ -16,7 +16,7 @@ export function AdminLoginForm() {
       <div>
         <label
           className="block text-[11px] uppercase tracking-wider font-bold mb-1.5"
-          style={{ color: "#f6b42c" }}
+          style={{ color: "#f7c021" }}
         >
           Admin e-mail
         </label>
@@ -36,7 +36,7 @@ export function AdminLoginForm() {
       <div>
         <label
           className="block text-[11px] uppercase tracking-wider font-bold mb-1.5"
-          style={{ color: "#f6b42c" }}
+          style={{ color: "#f7c021" }}
         >
           Wachtwoord
         </label>

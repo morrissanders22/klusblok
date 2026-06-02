@@ -12,7 +12,7 @@ const ROLE_LABEL: Record<string, string> = {
 };
 
 const ROLE_COLOR: Record<string, string> = {
-  ADMIN: "#f6b42c",
+  ADMIN: "#f7c021",
   CONTRACTOR: "#3586b6",
   CONSUMER: "#10b981",
 };
@@ -86,7 +86,7 @@ export async function PortalTopbar() {
             </div>
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm"
-              style={{ backgroundColor: "#f6b42c", color: "#0f2535" }}
+              style={{ backgroundColor: "#f7c021", color: "#0f2535" }}
             >
               {user.name?.slice(0, 2).toUpperCase() ?? "U"}
             </div>

@@ -104,7 +104,7 @@ export default async function KlanteenKlussersPage() {
                     <Td>
                       {avg ? (
                         <span className="flex items-center gap-1">
-                          <Star size={12} fill="#f6b42c" color="#f6b42c" />
+                          <Star size={12} fill="#f7c021" color="#f7c021" />
                           {avg.toFixed(1)} ({k._count.reviewsReceived})
                         </span>
                       ) : (

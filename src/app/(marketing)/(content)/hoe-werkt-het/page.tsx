@@ -77,7 +77,7 @@ export default function HoeWerktHetPage() {
       >
         <p
           className="kb-eyebrow"
-          style={{ color: "#f6b42c", opacity: 1 }}
+          style={{ color: "#f7c021", opacity: 1 }}
         >
           Klaar om te beginnen?
         </p>
@@ -114,7 +114,7 @@ function Step({
       <div
         className="rounded-full w-10 h-10 font-bold flex-shrink-0 flex items-center justify-center"
         style={{
-          backgroundColor: "#f6b42c",
+          backgroundColor: "#f7c021",
           color: "#1a2535",
           fontFamily: "var(--font-heading-barlow)",
         }}
