@@ -26,17 +26,17 @@ const BLUE = "#3586b6";
 const NAVY = "#0f2535";
 
 const CATEGORIES = [
-  { name: "Loodgieter", slug: "loodgieter", img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&q=80" },
-  { name: "Timmerman", slug: "timmerman", img: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&q=80" },
-  { name: "Schilder", slug: "schilder", img: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80" },
-  { name: "Elektricien", slug: "elektricien", img: "https://images.unsplash.com/photo-1565608438257-fac3c27beb36?w=600&q=80" },
-  { name: "Tegelzetter", slug: "tegelzetter", img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" },
-  { name: "Stukadoor", slug: "stukadoor", img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=600&q=80" },
-  { name: "Dakdekker", slug: "dakdekker", img: "https://images.unsplash.com/photo-1567361808960-dec9cb578182?w=600&q=80" },
-  { name: "Tuinman", slug: "tuinman", img: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" },
-  { name: "Schoonmaak", slug: "schoonmaak", img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" },
-  { name: "Verhuizer", slug: "verhuizer", img: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&q=80" },
-  { name: "Metselaar", slug: "metselaar", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80" },
+  { name: "Loodgieter", slug: "loodgieter", img: "/categories/loodgieter.png" },
+  { name: "Timmerman", slug: "timmerman", img: "/categories/timmerman.png" },
+  { name: "Schilder", slug: "schilder", img: "/categories/schilder.png" },
+  { name: "Elektricien", slug: "elektricien", img: "/categories/elektricien.png" },
+  { name: "Tegelzetter", slug: "tegelzetter", img: "/categories/tegelzetter.png" },
+  { name: "Stukadoor", slug: "stukadoor", img: "/categories/stukadoor.png" },
+  { name: "Dakdekker", slug: "dakdekker", img: "/categories/dakdekker.png" },
+  { name: "Tuinman", slug: "tuinman", img: "/categories/tuinman.png" },
+  { name: "Schoonmaak", slug: "schoonmaak", img: "/categories/schoonmaak.png" },
+  { name: "Verhuizer", slug: "verhuizer", img: "/categories/verhuizer.png" },
+  { name: "Metselaar", slug: "metselaar", img: "/categories/metselaar.png" },
   { name: "Klein onderhoud", slug: "onderhoud", img: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80" },
 ];
 
