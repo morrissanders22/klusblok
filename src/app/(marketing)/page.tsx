@@ -26,18 +26,18 @@ const BLUE = "#3586b6";
 const NAVY = "#0f2535";
 
 const CATEGORIES = [
-  { name: "Loodgieter", slug: "loodgieter", img: "https://loremflickr.com/600/400/plumbing,sink?lock=1" },
-  { name: "Timmerman", slug: "timmerman", img: "https://loremflickr.com/600/400/carpentry,wood?lock=1" },
-  { name: "Schilder", slug: "schilder", img: "https://loremflickr.com/600/400/painting,wall?lock=1" },
-  { name: "Elektricien", slug: "elektricien", img: "https://loremflickr.com/600/400/electrical,wiring?lock=1" },
-  { name: "Tegelzetter", slug: "tegelzetter", img: "https://loremflickr.com/600/400/tiles,bathroom?lock=1" },
-  { name: "Stukadoor", slug: "stukadoor", img: "https://loremflickr.com/600/400/plaster,wall?lock=1" },
-  { name: "Dakdekker", slug: "dakdekker", img: "https://loremflickr.com/600/400/roofing,roof?lock=1" },
-  { name: "Tuinman", slug: "tuinman", img: "https://loremflickr.com/600/400/gardening,garden?lock=1" },
-  { name: "Schoonmaak", slug: "schoonmaak", img: "https://loremflickr.com/600/400/cleaning,housekeeping?lock=1" },
-  { name: "Verhuizer", slug: "verhuizer", img: "https://loremflickr.com/600/400/moving,boxes?lock=1" },
-  { name: "Metselaar", slug: "metselaar", img: "https://loremflickr.com/600/400/masonry,brick?lock=1" },
-  { name: "Klein onderhoud", slug: "onderhoud", img: "https://loremflickr.com/600/400/handyman,tools?lock=1" },
+  { name: "Loodgieter", slug: "loodgieter", img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&q=80" },
+  { name: "Timmerman", slug: "timmerman", img: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&q=80" },
+  { name: "Schilder", slug: "schilder", img: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80" },
+  { name: "Elektricien", slug: "elektricien", img: "https://images.unsplash.com/photo-1565608438257-fac3c27beb36?w=600&q=80" },
+  { name: "Tegelzetter", slug: "tegelzetter", img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" },
+  { name: "Stukadoor", slug: "stukadoor", img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=600&q=80" },
+  { name: "Dakdekker", slug: "dakdekker", img: "https://images.unsplash.com/photo-1567361808960-dec9cb578182?w=600&q=80" },
+  { name: "Tuinman", slug: "tuinman", img: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" },
+  { name: "Schoonmaak", slug: "schoonmaak", img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" },
+  { name: "Verhuizer", slug: "verhuizer", img: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&q=80" },
+  { name: "Metselaar", slug: "metselaar", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80" },
+  { name: "Klein onderhoud", slug: "onderhoud", img: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&q=80" },
 ];
 
 const STEPS = [
@@ -45,19 +45,19 @@ const STEPS = [
     num: "01",
     title: "Maak gratis een account",
     desc: "Als klusplaatser of als kluszoeker. Geen abonnement, geen verborgen kosten.",
-    img: "https://loremflickr.com/800/600/laptop,signup?lock=1",
+    img: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&q=80",
   },
   {
     num: "02",
     title: "Plaats of vind een klus",
     desc: "Beschrijf je klus met foto's, of blader door beschikbare opdrachten in jouw regio.",
-    img: "https://loremflickr.com/800/600/construction,planning?lock=1",
+    img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
   },
   {
     num: "03",
     title: "Aan de slag binnen 2 uur",
     desc: "De kluszoeker neemt direct contact met je op na het claimen.",
-    img: "https://loremflickr.com/800/600/handshake,deal?lock=1",
+    img: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=800&q=80",
   },
 ];
 
@@ -381,7 +381,7 @@ export default async function Home() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://loremflickr.com/1920/600/woodworking,workshop?lock=3"
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -680,7 +680,7 @@ export default async function Home() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://loremflickr.com/800/1000/construction,worker?lock=1"
+                  src="https://images.unsplash.com/photo-1503387837-b154d5074bd2?w=800&q=80"
                   alt=""
                   className="w-full h-full object-cover"
                 />
@@ -815,8 +815,11 @@ export default async function Home() {
               Maak het je makkelijk
             </p>
             <h2
-              className="kb-heading mt-3 text-white"
-              style={{ fontSize: "clamp(32px, 4vw, 52px)" }}
+              className="kb-heading mt-3"
+              style={{
+                fontSize: "clamp(32px, 4vw, 52px)",
+                color: "white",
+              }}
             >
               Begin vandaag nog op Klusblok
             </h2>
