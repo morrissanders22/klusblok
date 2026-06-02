@@ -375,6 +375,48 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* SFEERFOTO BANNER — visual break + extra image */}
+      <section
+        className="relative h-[280px] lg:h-[360px] overflow-hidden"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://loremflickr.com/1920/600/woodworking,workshop?lock=3"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(15,37,53,0.7) 0%, rgba(15,37,53,0.4) 60%, rgba(15,37,53,0.1) 100%)",
+          }}
+        />
+        <div className="relative max-w-[1200px] mx-auto px-6 sm:px-10 h-full flex items-center">
+          <Reveal>
+            <div className="max-w-md text-white">
+              <p
+                className="kb-eyebrow"
+                style={{ color: YELLOW, opacity: 1 }}
+              >
+                Ervaren vakmensen
+              </p>
+              <h2
+                className="kb-heading mt-3 text-white"
+                style={{ fontSize: "clamp(28px, 3.5vw, 40px)", color: "white" }}
+              >
+                Alleen KVK-geverifieerde kluszoekers
+              </h2>
+              <p className="mt-3 text-white/80 text-[15px] leading-relaxed">
+                Iedere kluszoeker registreert zich met KVK-nummer en
+                rechtsbijstandsverzekering. Vakmanschap waar je op kunt
+                rekenen.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* TOP KLUSZOEKERS */}
       {topKlussers.length > 0 && (
         <section
@@ -742,14 +784,24 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* FINAL CTA — photo background with overlay for visual richness */}
       <section
-        className="py-20 lg:py-28 text-center"
-        style={{
-          background: `linear-gradient(135deg, ${NAVY} 0%, #1e4f70 100%)`,
-        }}
+        className="relative py-24 lg:py-32 text-center overflow-hidden"
       >
-        <div className="max-w-3xl mx-auto px-6">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://loremflickr.com/1920/900/construction,team,smile?lock=2"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(15,37,53,0.92) 0%, rgba(30,79,112,0.88) 100%)",
+          }}
+        />
+        <div className="relative max-w-3xl mx-auto px-6">
           <Reveal>
             <p
               className="kb-eyebrow"
@@ -763,7 +815,7 @@ export default async function Home() {
             >
               Begin vandaag nog op Klusblok
             </h2>
-            <p className="mt-5 text-white/70 text-lg">
+            <p className="mt-5 text-white/80 text-lg">
               Of je nu een klus plaatst of een vakman bent — registreren is
               gratis en in 30 seconden klaar.
             </p>
@@ -779,15 +831,16 @@ export default async function Home() {
                 href="/register/contractor"
                 className="inline-flex items-center gap-2 font-bold text-sm rounded-xl px-7 py-3.5"
                 style={{
-                  backgroundColor: "rgba(255,255,255,0.1)",
-                  border: "1.5px solid rgba(255,255,255,0.2)",
+                  backgroundColor: "rgba(255,255,255,0.12)",
+                  border: "1.5px solid rgba(255,255,255,0.25)",
                   color: "white",
+                  backdropFilter: "blur(4px)",
                 }}
               >
                 Word kluszoeker <ArrowRight size={16} />
               </Link>
             </div>
-            <div className="mt-12 flex flex-wrap justify-center items-center gap-6 text-white/60">
+            <div className="mt-12 flex flex-wrap justify-center items-center gap-6 text-white/70">
               <span className="flex items-center gap-2 text-sm">
                 <Phone size={14} />
                 <span>Direct contact, geen tussenpersoon</span>
