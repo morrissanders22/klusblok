@@ -741,11 +741,10 @@ export default async function Home() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8 flex flex-wrap gap-x-10 gap-y-4">
+                <div className="mt-8 grid grid-cols-3 gap-6">
                   <KvStat value="100%" label="Gratis plaatsen" />
                   <KvStat value="2u" label="Reactievenster" />
                   <KvStat value="NL" label="Heel Nederland" />
-                  <KvStat value="0" label="Abonnementen" />
                 </div>
               </div>
             </Reveal>
@@ -784,22 +783,28 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* FINAL CTA — photo background with overlay for visual richness */}
+      {/* FINAL CTA — clean dark gradient, white text crisp, smooth transition to footer */}
       <section
         className="relative py-24 lg:py-32 text-center overflow-hidden"
+        style={{
+          background: `linear-gradient(180deg, #1e4f70 0%, ${NAVY} 100%)`,
+        }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://loremflickr.com/1920/900/construction,team,smile?lock=2"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {/* subtle dot pattern */}
         <div
-          className="absolute inset-0"
+          aria-hidden
+          className="absolute inset-0 opacity-10"
           style={{
-            background:
-              "linear-gradient(135deg, rgba(15,37,53,0.92) 0%, rgba(30,79,112,0.88) 100%)",
+            backgroundImage:
+              "radial-gradient(circle, white 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
           }}
+        />
+        {/* yellow accent glow */}
+        <div
+          aria-hidden
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-20 blur-3xl"
+          style={{ backgroundColor: YELLOW }}
         />
         <div className="relative max-w-3xl mx-auto px-6">
           <Reveal>
@@ -815,7 +820,7 @@ export default async function Home() {
             >
               Begin vandaag nog op Klusblok
             </h2>
-            <p className="mt-5 text-white/80 text-lg">
+            <p className="mt-5 text-white text-lg">
               Of je nu een klus plaatst of een vakman bent — registreren is
               gratis en in 30 seconden klaar.
             </p>
@@ -840,7 +845,7 @@ export default async function Home() {
                 Word kluszoeker <ArrowRight size={16} />
               </Link>
             </div>
-            <div className="mt-12 flex flex-wrap justify-center items-center gap-6 text-white/70">
+            <div className="mt-12 flex flex-wrap justify-center items-center gap-6 text-white">
               <span className="flex items-center gap-2 text-sm">
                 <Phone size={14} />
                 <span>Direct contact, geen tussenpersoon</span>
