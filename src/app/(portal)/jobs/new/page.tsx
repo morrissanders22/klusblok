@@ -90,6 +90,11 @@ export default function NewJobPage() {
         {photoUrls.map((url) => (
           <input key={url} type="hidden" name="photos" value={url} />
         ))}
+        <input
+          type="hidden"
+          name="photosJson"
+          value={JSON.stringify(photoUrls)}
+        />
 
         {step === 0 && (
           <Panel
@@ -314,6 +319,7 @@ export default function NewJobPage() {
                 services={services}
                 title={title}
                 complexity={complexity}
+                photoCount={photoCount}
               />
             </div>
           </Panel>
@@ -468,11 +474,13 @@ function Summary({
   services,
   title,
   complexity,
+  photoCount,
 }: {
   type: JobType;
   services: string[];
   title: string;
   complexity: Complexity;
+  photoCount: number;
 }) {
   return (
     <div
@@ -504,6 +512,10 @@ function Summary({
         <div className="flex justify-between gap-3">
           <dt className="text-[#5c6878]">Titel</dt>
           <dd className="font-semibold text-right">{title || "—"}</dd>
+        </div>
+        <div className="flex justify-between gap-3">
+          <dt className="text-[#5c6878]">Foto&apos;s</dt>
+          <dd className="font-semibold">{photoCount} bijgevoegd</dd>
         </div>
       </dl>
     </div>

@@ -44,6 +44,26 @@ export async function createJob(
     return { error: "Bevestig eerst je e-mailadres om een klus te kunnen plaatsen." };
   }
 
+  // Photos can arrive either as multiple `photos` fields OR as a JSON array
+  // in `photosJson`. We prefer JSON when present, fall back to getAll.
+  const photosRaw = formData.get("photosJson");
+  let photos: string[] = [];
+  if (typeof photosRaw === "string" && photosRaw.length > 0) {
+    try {
+      const parsed = JSON.parse(photosRaw);
+      if (Array.isArray(parsed)) {
+        photos = parsed.filter((v): v is string => typeof v === "string");
+      }
+    } catch {
+      // fall through to getAll fallback
+    }
+  }
+  if (photos.length === 0) {
+    photos = formData
+      .getAll("photos")
+      .filter((v): v is string => typeof v === "string" && v.length > 0);
+  }
+
   const parsed = schema.safeParse({
     type: formData.get("type") ?? "single",
     title: formData.get("title"),
@@ -54,7 +74,7 @@ export async function createJob(
     address: formData.get("address"),
     postalCode: formData.get("postalCode"),
     phone: formData.get("phone"),
-    photos: formData.getAll("photos").filter(Boolean),
+    photos,
   });
 
   if (!parsed.success) {
