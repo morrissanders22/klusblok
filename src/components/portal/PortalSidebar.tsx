@@ -4,7 +4,6 @@ import {
   Briefcase,
   Plus,
   BookmarkCheck,
-  ShieldCheck,
   ExternalLink,
   Settings,
   Star,
@@ -112,13 +111,6 @@ export async function PortalSidebar() {
         <Link href="/" className="flex items-center gap-2.5">
           <Logo size={28} variant="black" />
         </Link>
-        <p
-          className="kb-eyebrow !opacity-100 mt-3 flex items-center gap-1.5"
-          style={{ color: meta.accent, fontSize: "10px", letterSpacing: "2px" }}
-        >
-          {role === "ADMIN" && <ShieldCheck size={10} />}
-          {meta.label}
-        </p>
       </div>
 
       <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
