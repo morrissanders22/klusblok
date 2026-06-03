@@ -83,7 +83,7 @@ export async function Nav() {
                   className="btn-yellow"
                   style={{ padding: "10px 22px", fontSize: "13px" }}
                 >
-                  <Monitor size={14} /> Naar software
+                  <Monitor size={14} /> Dashboard
                 </Link>
               ) : (
                 <>

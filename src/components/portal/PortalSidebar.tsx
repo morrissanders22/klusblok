@@ -110,7 +110,7 @@ export async function PortalSidebar() {
         style={{ borderBottom: "1px solid #eef2f7" }}
       >
         <Link href="/" className="flex items-center gap-2.5">
-          <Logo size={28} />
+          <Logo size={28} variant="black" />
         </Link>
         <p
           className="kb-eyebrow !opacity-100 mt-3 flex items-center gap-1.5"

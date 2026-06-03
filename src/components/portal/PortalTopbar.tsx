@@ -37,7 +37,7 @@ export async function PortalTopbar() {
     >
       <div className="h-[64px] flex items-center justify-between px-4 sm:px-8">
         <Link href="/dashboard" className="flex items-center gap-2 lg:hidden">
-          <Logo size={24} />
+          <Logo size={24} variant="black" />
           <span
             className="kb-badge text-[10px]"
             style={{

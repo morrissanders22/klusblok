@@ -14,7 +14,7 @@ export default function LoginPage() {
         </h1>
         <p className="text-[#5c6878] mt-2">
           Kies de modus waarin je vandaag wilt werken. Je kunt later eenvoudig
-          switchen in de software.
+          switchen via je dashboard.
         </p>
       </header>
 

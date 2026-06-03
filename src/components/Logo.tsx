@@ -6,15 +6,21 @@ export function Logo({
 }: {
   /** Height in px (width auto-scales) */
   size?: number;
-  /** "dark" = native colors on light bg, "light" = inverted for dark bg */
-  variant?: "dark" | "light";
+  /** "dark" = native colors on light bg, "light" = inverted for dark bg, "black" = solid black silhouette */
+  variant?: "dark" | "light" | "black";
 }) {
+  const filter =
+    variant === "light"
+      ? "brightness(0) invert(1)"
+      : variant === "black"
+        ? "brightness(0)"
+        : undefined;
   const style: CSSProperties = {
     height: size,
     width: "auto",
     objectFit: "contain",
     display: "block",
-    filter: variant === "light" ? "brightness(0) invert(1)" : undefined,
+    filter,
   };
 
   return (

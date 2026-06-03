@@ -2,10 +2,11 @@
 
 import { z } from "zod";
 import bcrypt from "bcryptjs";
+import { SignJWT } from "jose";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-import { auth } from "@/auth";
+import { auth, signIn } from "@/auth";
 import { prisma } from "@/lib/db";
 
 async function requireAdmin() {
@@ -168,4 +169,63 @@ export async function adminVerifyUser(userId: string): Promise<void> {
     data: { emailVerified: new Date(), verifyToken: null },
   });
   revalidatePath(`/admin/klanten/${userId}`);
+}
+
+function impersonateSecret() {
+  const raw = process.env.AUTH_SECRET ?? process.env.NEXTAUTH_SECRET;
+  if (!raw) throw new Error("AUTH_SECRET ontbreekt");
+  return new TextEncoder().encode(raw);
+}
+
+export async function adminImpersonateUser(targetUserId: string): Promise<void> {
+  const admin = await requireAdmin();
+  if (admin.id === targetUserId) redirect("/dashboard");
+
+  const target = await prisma.user.findUnique({
+    where: { id: targetUserId },
+    select: { id: true, role: true },
+  });
+  if (!target) redirect("/admin");
+
+  const nonce = await new SignJWT({
+    adminId: admin.id,
+    targetUserId: target.id,
+  })
+    .setProtectedHeader({ alg: "HS256" })
+    .setAudience("kb:impersonate")
+    .setIssuedAt()
+    .setExpirationTime("60s")
+    .sign(impersonateSecret());
+
+  await signIn("impersonate", {
+    nonce,
+    redirectTo: "/dashboard",
+  });
+}
+
+export async function adminStopImpersonating(): Promise<void> {
+  const session = await auth();
+  const impersonatedBy = session?.user?.impersonatedBy;
+  if (!impersonatedBy) redirect("/dashboard");
+
+  const admin = await prisma.user.findUnique({
+    where: { id: impersonatedBy },
+    select: { id: true, role: true },
+  });
+  if (!admin || admin.role !== "ADMIN") redirect("/dashboard");
+
+  const nonce = await new SignJWT({
+    adminId: admin.id,
+    targetUserId: admin.id,
+  })
+    .setProtectedHeader({ alg: "HS256" })
+    .setAudience("kb:impersonate")
+    .setIssuedAt()
+    .setExpirationTime("60s")
+    .sign(impersonateSecret());
+
+  await signIn("impersonate", {
+    nonce,
+    redirectTo: "/admin",
+  });
 }

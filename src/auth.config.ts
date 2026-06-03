@@ -12,6 +12,7 @@ export const authConfig = {
         token.name = user.name;
         token.email = user.email;
         token.role = user.role;
+        token.impersonatedBy = user.impersonatedBy ?? null;
       }
       return token;
     },
@@ -21,6 +22,7 @@ export const authConfig = {
         session.user.name = String(token.name ?? "");
         session.user.email = String(token.email ?? "");
         session.user.role = (token.role as "CONSUMER" | "CONTRACTOR" | "ADMIN") ?? "CONSUMER";
+        session.user.impersonatedBy = (token.impersonatedBy as string | null | undefined) ?? null;
       }
       return session;
     },

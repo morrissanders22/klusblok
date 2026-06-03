@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import { PortalSidebar } from "@/components/portal/PortalSidebar";
 import { PortalTopbar } from "@/components/portal/PortalTopbar";
 import { VerifyBanner } from "@/components/portal/VerifyBanner";
+import { ImpersonationBanner } from "@/components/portal/ImpersonationBanner";
 
 export default async function PortalLayout({
   children,
@@ -24,6 +25,7 @@ export default async function PortalLayout({
       <div className="flex-1 flex flex-col lg:pl-[240px] min-w-0">
         <PortalTopbar />
         <main className="flex-1 overflow-y-auto">
+          <ImpersonationBanner />
           <div className="mx-auto max-w-6xl px-4 sm:px-8 py-8">
             <VerifyBanner />
             {children}

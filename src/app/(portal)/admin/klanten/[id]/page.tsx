@@ -7,6 +7,7 @@ import { prisma } from "@/lib/db";
 import { formatEuro } from "@/lib/services";
 import { EditUserForm } from "./EditUserForm";
 import { DeleteUserButton } from "./DeleteUserButton";
+import { ImpersonateButton } from "./ImpersonateButton";
 
 export const dynamic = "force-dynamic";
 
@@ -100,10 +101,16 @@ export default async function AdminUserDetail({
             </div>
           </div>
           {!isSelf && (
-            <DeleteUserButton
-              userId={user.id}
-              name={user.companyName ?? user.name}
-            />
+            <div className="flex flex-col items-stretch sm:items-end gap-2 shrink-0">
+              <ImpersonateButton
+                userId={user.id}
+                label={user.companyName ?? user.name}
+              />
+              <DeleteUserButton
+                userId={user.id}
+                name={user.companyName ?? user.name}
+              />
+            </div>
           )}
         </div>
       </header>
