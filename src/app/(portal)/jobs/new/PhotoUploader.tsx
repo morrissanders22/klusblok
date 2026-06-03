@@ -1,23 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const MAX = 4;
 
 export function PhotoUploader({
   minCount = 0,
-  onCountChange,
+  urls,
+  onChange,
 }: {
   minCount?: number;
-  onCountChange?: (count: number) => void;
+  urls: string[];
+  onChange: (urls: string[]) => void;
 }) {
-  const [urls, setUrls] = useState<string[]>([]);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    onCountChange?.(urls.length);
-  }, [urls.length, onCountChange]);
 
   async function handleFiles(files: FileList | null) {
     if (!files) return;
@@ -40,7 +37,7 @@ export function PhotoUploader({
       const body = await res.json();
       next.push(body.url);
     }
-    setUrls((prev) => [...prev, ...next]);
+    onChange([...urls, ...next]);
     setUploading(false);
   }
 
@@ -59,10 +56,9 @@ export function PhotoUploader({
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={url} alt="" className="w-full h-full object-cover" />
-            <input type="hidden" name="photos" value={url} />
             <button
               type="button"
-              onClick={() => setUrls(urls.filter((_, j) => j !== i))}
+              onClick={() => onChange(urls.filter((_, j) => j !== i))}
               className="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-white/95 text-[#5c6878] hover:text-[#dc2626] flex items-center justify-center text-xs shadow-sm"
               aria-label="Verwijder foto"
             >

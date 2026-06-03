@@ -33,7 +33,8 @@ export default function NewJobPage() {
   const [complexity, setComplexity] = useState<Complexity>("standard");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [photoCount, setPhotoCount] = useState(0);
+  const [photoUrls, setPhotoUrls] = useState<string[]>([]);
+  const photoCount = photoUrls.length;
 
   const [state, action, pending] = useActionState<NewJobState, FormData>(
     createJob,
@@ -86,6 +87,9 @@ export default function NewJobPage() {
         <input type="hidden" name="complexity" value={complexity} />
         <input type="hidden" name="title" value={title} />
         <input type="hidden" name="description" value={description} />
+        {photoUrls.map((url) => (
+          <input key={url} type="hidden" name="photos" value={url} />
+        ))}
 
         {step === 0 && (
           <Panel
@@ -238,7 +242,11 @@ export default function NewJobPage() {
             title="Foto's toevoegen"
             subtitle="Minimaal 2 foto's zijn verplicht — klussers reageren 3× zo vaak op klussen met goede foto's."
           >
-            <PhotoUploader minCount={2} onCountChange={setPhotoCount} />
+            <PhotoUploader
+              minCount={2}
+              urls={photoUrls}
+              onChange={setPhotoUrls}
+            />
             <div
               className="mt-5 rounded-lg p-3 flex items-center gap-2 text-sm"
               style={{
