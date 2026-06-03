@@ -40,13 +40,13 @@ export async function Nav() {
                   backgroundColor: "#f7c021",
                   width: 110,
                   height: 110,
-                  top: "50%",
+                  top: "100%",
                   transform: "translateY(-50%)",
                   border: "4px solid #1e4f70",
-                  padding: 16,
+                  padding: 10,
                 }}
               >
-                <Logo size={42} variant="black" />
+                <Logo size={64} variant="black" />
               </span>
             </Link>
 
