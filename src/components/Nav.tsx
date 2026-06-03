@@ -65,7 +65,17 @@ export async function Nav() {
         <div className="max-w-[1280px] mx-auto px-5 sm:px-[52px]">
           <div className="h-[70px] flex items-center justify-between gap-6">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <Logo size={28} variant="light" />
+              <span
+                className="flex items-center justify-center rounded-full shadow-sm"
+                style={{
+                  backgroundColor: "#f7c021",
+                  width: 52,
+                  height: 52,
+                  padding: 10,
+                }}
+              >
+                <Logo size={28} variant="black" />
+              </span>
             </Link>
 
             <nav className="hidden lg:flex gap-1 items-center">
