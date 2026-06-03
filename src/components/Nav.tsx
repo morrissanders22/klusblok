@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 
 import { auth } from "@/auth";
-import { Logo } from "./Logo";
 
 const NAV_ITEMS: { label: string; href: string }[] = [
   { label: "Vind een klus", href: "/jobs" },
@@ -60,21 +59,53 @@ export async function Nav() {
         style={{
           backgroundColor: "#1e4f70",
           boxShadow: "0 2px 12px rgba(30,79,112,0.3)",
+          overflow: "visible",
         }}
+        className="relative"
       >
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-[52px]">
+        <div className="max-w-[1280px] mx-auto px-5 sm:px-[52px] relative">
           <div className="h-[70px] flex items-center justify-between gap-6">
-            <Link href="/" className="flex-shrink-0 flex items-center">
+            <Link
+              href="/"
+              className="flex-shrink-0 flex items-center relative"
+              aria-label="Klusblok home"
+              style={{ width: 110 }}
+            >
               <span
-                className="flex items-center justify-center rounded-full shadow-sm"
+                className="absolute left-0 flex flex-col items-center justify-center rounded-full shadow-lg"
                 style={{
                   backgroundColor: "#f7c021",
-                  width: 52,
-                  height: 52,
-                  padding: 10,
+                  width: 110,
+                  height: 110,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  border: "4px solid #1e4f70",
+                  lineHeight: 1,
                 }}
               >
-                <Logo size={28} variant="black" />
+                <span
+                  style={{
+                    fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                    fontWeight: 900,
+                    fontSize: 22,
+                    letterSpacing: "0.5px",
+                    color: "#0f2535",
+                  }}
+                >
+                  KLUS
+                </span>
+                <span
+                  style={{
+                    fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                    fontWeight: 900,
+                    fontSize: 22,
+                    letterSpacing: "0.5px",
+                    color: "#0f2535",
+                    marginTop: 2,
+                  }}
+                >
+                  BLOK
+                </span>
               </span>
             </Link>
 
