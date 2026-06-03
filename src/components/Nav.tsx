@@ -1,14 +1,8 @@
 import Link from "next/link";
-import {
-  Mail,
-  MapPin,
-  Star,
-  LogIn,
-  Monitor,
-  ArrowRight,
-} from "lucide-react";
+import { LogIn, Monitor, ArrowRight } from "lucide-react";
 
 import { auth } from "@/auth";
+import { Logo } from "./Logo";
 
 const NAV_ITEMS: { label: string; href: string }[] = [
   { label: "Vind een klus", href: "/jobs" },
@@ -23,37 +17,6 @@ export async function Nav() {
 
   return (
     <div className="sticky top-0 z-50">
-      {/* TOPBAR */}
-      <div
-        style={{
-          backgroundColor: "#1e4f70",
-          color: "rgba(255,255,255,0.55)",
-          fontSize: "12px",
-          padding: "8px 24px",
-        }}
-        className="flex justify-between items-center flex-wrap gap-2 sm:px-[52px]"
-      >
-        <div className="flex gap-5">
-          <a
-            href="mailto:info@klusblok.nl"
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
-          >
-            <Mail size={11} /> info@klusblok.nl
-          </a>
-          <span className="hidden sm:flex items-center gap-1.5">
-            <MapPin size={11} /> Nederland
-          </span>
-        </div>
-        <div className="flex gap-1.5 items-center">
-          {[1, 2, 3, 4, 5].map((s) => (
-            <Star key={s} size={10} fill="#f7c021" color="#f7c021" />
-          ))}
-          <span className="ml-1 text-white font-bold text-xs">
-            Vakmannen door heel Nederland
-          </span>
-        </div>
-      </div>
-
       {/* MAIN NAV */}
       <header
         style={{
@@ -72,7 +35,7 @@ export async function Nav() {
               style={{ width: 110 }}
             >
               <span
-                className="absolute left-0 flex flex-col items-center justify-center rounded-full shadow-lg"
+                className="absolute left-0 flex items-center justify-center rounded-full shadow-lg"
                 style={{
                   backgroundColor: "#f7c021",
                   width: 110,
@@ -80,32 +43,10 @@ export async function Nav() {
                   top: "50%",
                   transform: "translateY(-50%)",
                   border: "4px solid #1e4f70",
-                  lineHeight: 1,
+                  padding: 16,
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-                    fontWeight: 900,
-                    fontSize: 22,
-                    letterSpacing: "0.5px",
-                    color: "#0f2535",
-                  }}
-                >
-                  KLUS
-                </span>
-                <span
-                  style={{
-                    fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-                    fontWeight: 900,
-                    fontSize: 22,
-                    letterSpacing: "0.5px",
-                    color: "#0f2535",
-                    marginTop: 2,
-                  }}
-                >
-                  BLOK
-                </span>
+                <Logo size={42} variant="black" />
               </span>
             </Link>
 
