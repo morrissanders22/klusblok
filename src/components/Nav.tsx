@@ -27,10 +27,10 @@ export async function Nav() {
         className="relative"
       >
         <div className="max-w-[1280px] mx-auto px-5 sm:px-[52px] relative">
-          <div className="h-[120px] flex items-center justify-between gap-6">
+          <div className="h-[100px] flex items-center justify-between gap-6">
             <Link
               href="/"
-              className="flex-shrink-0 flex items-center relative"
+              className="flex-shrink-0 flex items-center relative h-full"
               aria-label="Klusblok home"
               style={{ width: 110 }}
             >
