@@ -72,7 +72,7 @@ export function PhotoUploader({
         ))}
         {urls.length < MAX && (
           <label
-            className="flex flex-col items-center justify-center aspect-square rounded-lg cursor-pointer text-sm font-medium"
+            className="flex flex-col items-center justify-center aspect-square rounded-lg cursor-pointer text-sm font-medium hover:bg-[#f8fafc] transition-colors"
             style={{
               border: `2px dashed ${urls.length < minCount ? "#f7c021" : "#cbd5e1"}`,
               backgroundColor:
@@ -80,6 +80,17 @@ export function PhotoUploader({
               color: urls.length < minCount ? "#92400e" : "#5c6878",
             }}
           >
+            <input
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              multiple
+              className="sr-only"
+              disabled={uploading}
+              onChange={(e) => {
+                handleFiles(e.target.files);
+                e.target.value = "";
+              }}
+            />
             <span className="text-xl">{uploading ? "…" : "+"}</span>
             <span className="text-xs mt-1">
               {uploading ? "Uploaden" : "Foto"}
