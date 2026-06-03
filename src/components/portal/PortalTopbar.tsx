@@ -4,6 +4,10 @@ import { ExternalLink, LogOut, ShieldCheck } from "lucide-react";
 import { auth, signOut } from "@/auth";
 import { prisma } from "@/lib/db";
 import { Logo } from "@/components/Logo";
+import {
+  AdminUserSwitcher,
+  type SwitchableUser,
+} from "@/components/portal/AdminUserSwitcher";
 
 const ROLE_LABEL: Record<string, string> = {
   ADMIN: "Admin",
@@ -29,6 +33,25 @@ export async function PortalTopbar() {
 
   const roleLabel = ROLE_LABEL[user.role] ?? user.role;
   const roleColor = ROLE_COLOR[user.role] ?? "#3586b6";
+  const isImpersonating = !!session.user.impersonatedBy;
+
+  // Admins get a quick-switch dropdown to impersonate any klant/kluszoeker.
+  let switchableUsers: SwitchableUser[] = [];
+  if (user.role === "ADMIN" && !isImpersonating) {
+    switchableUsers = await prisma.user.findMany({
+      where: { role: { in: ["CONSUMER", "CONTRACTOR"] } },
+      orderBy: { createdAt: "desc" },
+      take: 50,
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        city: true,
+        companyName: true,
+        role: true,
+      },
+    });
+  }
 
   return (
     <header
@@ -51,13 +74,17 @@ export async function PortalTopbar() {
         </Link>
 
         <div className="hidden lg:flex items-center gap-3">
-          <span
-            className="text-[11px] uppercase tracking-[2px] font-bold flex items-center gap-1.5"
-            style={{ color: roleColor }}
-          >
-            {user.role === "ADMIN" && <ShieldCheck size={12} />}
-            {roleLabel}
-          </span>
+          {user.role === "ADMIN" && !isImpersonating ? (
+            <AdminUserSwitcher users={switchableUsers} />
+          ) : (
+            <span
+              className="text-[11px] uppercase tracking-[2px] font-bold flex items-center gap-1.5"
+              style={{ color: roleColor }}
+            >
+              {user.role === "ADMIN" && <ShieldCheck size={12} />}
+              {roleLabel}
+            </span>
+          )}
         </div>
 
         <div className="flex items-center gap-3">
