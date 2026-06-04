@@ -27,26 +27,23 @@ export async function Nav() {
         className="relative"
       >
         <div className="max-w-[1280px] mx-auto px-5 sm:px-[52px] relative">
-          <div className="h-[100px] flex items-center justify-between gap-6">
+          <div className="h-[120px] flex items-center justify-between gap-6">
             <Link
               href="/"
-              className="flex-shrink-0 flex items-center relative h-full"
+              className="flex-shrink-0 flex items-center"
               aria-label="Klusblok home"
-              style={{ width: 110 }}
             >
               <span
-                className="absolute left-0 flex items-center justify-center rounded-full shadow-lg"
+                className="flex items-center justify-center rounded-full shadow-lg"
                 style={{
                   backgroundColor: "#f7c021",
-                  width: 110,
-                  height: 110,
-                  top: "100%",
-                  transform: "translateY(-50%)",
+                  width: 96,
+                  height: 96,
                   border: "4px solid #1e4f70",
                   padding: 10,
                 }}
               >
-                <Logo size={64} variant="black" />
+                <Logo size={58} variant="black" />
               </span>
             </Link>
 
