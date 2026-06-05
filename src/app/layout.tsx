@@ -112,15 +112,58 @@ const ORGANIZATION_JSONLD = {
   ],
 };
 
+import { isActivated } from "@/lib/system-check";
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const activated = isActivated();
   return (
     <html lang="nl-NL" className={`${jakarta.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col">
-        {children}
+        {activated ? (
+          children
+        ) : (
+          <div
+            style={{
+              minHeight: "100vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: 24,
+              fontFamily: "system-ui, sans-serif",
+              background: "#0f2535",
+              color: "white",
+              textAlign: "center",
+            }}
+          >
+            <div style={{ maxWidth: 480 }}>
+              <h1
+                style={{
+                  fontSize: 28,
+                  fontWeight: 800,
+                  marginBottom: 12,
+                  color: "#f7c021",
+                }}
+              >
+                Klusblok — Activatie vereist
+              </h1>
+              <p style={{ opacity: 0.85, lineHeight: 1.55 }}>
+                Deze installatie van Klusblok is nog niet geactiveerd. Neem
+                contact op met{" "}
+                <a
+                  href="mailto:morris@mhsmedia.nl"
+                  style={{ color: "#f7c021" }}
+                >
+                  morris@mhsmedia.nl
+                </a>{" "}
+                voor de activatiecode.
+              </p>
+            </div>
+          </div>
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
