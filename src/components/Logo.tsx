@@ -1,13 +1,19 @@
+import Image from "next/image";
 import type { CSSProperties } from "react";
+
+const NATIVE_HEIGHT = 54;
+const NATIVE_WIDTH = 301;
 
 export function Logo({
   size = 32,
   variant = "dark",
+  priority = false,
 }: {
   /** Height in px (width auto-scales) */
   size?: number;
   /** "dark" = native colors on light bg, "light" = inverted for dark bg, "black" = solid black silhouette */
   variant?: "dark" | "light" | "black";
+  priority?: boolean;
 }) {
   const filter =
     variant === "light"
@@ -15,6 +21,7 @@ export function Logo({
       : variant === "black"
         ? "brightness(0)"
         : undefined;
+  const width = Math.round((size / NATIVE_HEIGHT) * NATIVE_WIDTH);
   const style: CSSProperties = {
     height: size,
     width: "auto",
@@ -24,11 +31,13 @@ export function Logo({
   };
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/brand/klusblok-logo.png"
       alt="Klusblok"
+      width={width}
+      height={size}
       style={style}
+      priority={priority}
     />
   );
 }

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -26,18 +27,18 @@ const BLUE = "#3586b6";
 const NAVY = "#0f2535";
 
 const CATEGORIES = [
-  { name: "Loodgieter", slug: "loodgieter", img: "/categories/loodgieter.png" },
-  { name: "Timmerman", slug: "timmerman", img: "/categories/timmerman.png" },
-  { name: "Schilder", slug: "schilder", img: "/categories/schilder.png" },
-  { name: "Elektricien", slug: "elektricien", img: "/categories/elektricien.png" },
-  { name: "Tegelzetter", slug: "tegelzetter", img: "/categories/tegelzetter.png" },
-  { name: "Stukadoor", slug: "stukadoor", img: "/categories/stukadoor.png" },
-  { name: "Dakdekker", slug: "dakdekker", img: "/categories/dakdekker.png" },
-  { name: "Tuinman", slug: "tuinman", img: "/categories/tuinman.png" },
-  { name: "Schoonmaak", slug: "schoonmaak", img: "/categories/schoonmaak.png" },
-  { name: "Verhuizer", slug: "verhuizer", img: "/categories/verhuizer.png" },
-  { name: "Metselaar", slug: "metselaar", img: "/categories/metselaar.png" },
-  { name: "Klein onderhoud", slug: "onderhoud", img: "/categories/onderhoud.png" },
+  { name: "Loodgieter", slug: "loodgieter", img: "/categories/loodgieter.webp" },
+  { name: "Timmerman", slug: "timmerman", img: "/categories/timmerman.webp" },
+  { name: "Schilder", slug: "schilder", img: "/categories/schilder.webp" },
+  { name: "Elektricien", slug: "elektricien", img: "/categories/elektricien.webp" },
+  { name: "Tegelzetter", slug: "tegelzetter", img: "/categories/tegelzetter.webp" },
+  { name: "Stukadoor", slug: "stukadoor", img: "/categories/stukadoor.webp" },
+  { name: "Dakdekker", slug: "dakdekker", img: "/categories/dakdekker.webp" },
+  { name: "Tuinman", slug: "tuinman", img: "/categories/tuinman.webp" },
+  { name: "Schoonmaak", slug: "schoonmaak", img: "/categories/schoonmaak.webp" },
+  { name: "Verhuizer", slug: "verhuizer", img: "/categories/verhuizer.webp" },
+  { name: "Metselaar", slug: "metselaar", img: "/categories/metselaar.webp" },
+  { name: "Klein onderhoud", slug: "onderhoud", img: "/categories/onderhoud.webp" },
 ];
 
 const STEPS = [
@@ -293,11 +294,12 @@ export default async function Home() {
                     className="aspect-[16/10] relative overflow-hidden"
                     style={{ backgroundColor: "#eef2f7" }}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={s.img}
                       alt=""
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
                     />
                     <div
                       className="absolute top-4 left-4 w-12 h-12 rounded-xl flex items-center justify-center font-extrabold text-lg"
@@ -379,11 +381,12 @@ export default async function Home() {
       <section
         className="relative h-[280px] lg:h-[360px] overflow-hidden"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
           alt=""
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -463,10 +466,11 @@ export default async function Home() {
                         style={{ backgroundColor: "#eef2f7" }}
                       >
                         {k.photoUrl ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
+                          <Image
                             src={k.photoUrl}
                             alt=""
+                            width={56}
+                            height={56}
                             className="w-full h-full object-cover"
                           />
                         ) : (
@@ -566,15 +570,19 @@ export default async function Home() {
                   </p>
                   <div className="flex items-center gap-3">
                     <div
-                      className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0"
-                      style={{ backgroundColor: "#eef2f7" }}
+                      className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm"
+                      style={{
+                        backgroundColor: "#f7c021",
+                        color: "#0f2535",
+                      }}
+                      aria-hidden="true"
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={t.avatar}
-                        alt=""
-                        className="w-full h-full object-cover"
-                      />
+                      {t.name
+                        .split(" ")
+                        .map((p) => p[0])
+                        .slice(0, 2)
+                        .join("")
+                        .toUpperCase()}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-bold text-sm text-[#1a2535] truncate">
@@ -678,11 +686,12 @@ export default async function Home() {
                 className="relative rounded-3xl overflow-hidden"
                 style={{ aspectRatio: "4/5" }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1503387837-b154d5074bd2?w=800&q=80"
                   alt=""
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
                 <div
                   className="absolute bottom-6 left-6 right-6 rounded-2xl p-4 bg-white"
@@ -940,11 +949,12 @@ function CategoryTile({ name, img }: { name: string; img: string }) {
         boxShadow: "0 1px 2px rgba(15,37,53,0.05)",
       }}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={img}
         alt=""
-        className="w-full h-full object-cover transition-transform group-hover:scale-105"
+        fill
+        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
+        className="object-cover transition-transform group-hover:scale-105"
       />
       <div
         className="absolute inset-0"

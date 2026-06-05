@@ -43,7 +43,7 @@ export async function Nav() {
                   padding: 14,
                 }}
               >
-                <Logo size={60} variant="dark" />
+                <Logo size={60} variant="dark" priority />
               </span>
             </Link>
 
