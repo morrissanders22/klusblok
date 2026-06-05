@@ -4,8 +4,7 @@ Eerlijke marktplaats voor klussen. Particulieren plaatsen gratis, aannemers
 betalen **alleen per geclaimde lead** (€ 6 / € 10 / € 20 / € 40, afhankelijk
 van complexiteit). Geen abonnementen, geen "mollen".
 
-Gebaseerd op de meeting met Ricardo Keeldar (Klusblok) en Morris Sanders
-(MHS Media) — pay-per-lead model met 2-uur claim-venster.
+Pay-per-lead model met 2-uur claim-venster.
 
 ## Stack
 

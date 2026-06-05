@@ -37,13 +37,13 @@ export async function Nav() {
                 className="flex items-center justify-center rounded-full shadow-lg"
                 style={{
                   backgroundColor: "#f7c021",
-                  width: 96,
-                  height: 96,
+                  width: 110,
+                  height: 110,
                   border: "4px solid #1e4f70",
-                  padding: 10,
+                  padding: 14,
                 }}
               >
-                <Logo size={58} variant="black" />
+                <Logo size={60} variant="dark" />
               </span>
             </Link>
 

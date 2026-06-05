@@ -1,28 +1,37 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 
-export const size = { width: 32, height: 32 };
+export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
-export const runtime = "edge";
 
-export default function Icon() {
+export default async function Icon() {
+  const buffer = await readFile(
+    path.join(process.cwd(), "public/brand/klusblok-K.png"),
+  );
+  const dataUrl = `data:image/png;base64,${buffer.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
         style={{
-          background: "#f7c021",
           width: "100%",
           height: "100%",
+          background: "#f7c021",
+          borderRadius: "50%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#0f2535",
-          fontSize: 22,
-          fontWeight: 900,
-          letterSpacing: -0.5,
-          borderRadius: 8,
         }}
       >
-        K
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={dataUrl}
+          alt="K"
+          width={42}
+          height={42}
+          style={{ filter: "brightness(0)" }}
+        />
       </div>
     ),
     { ...size },
