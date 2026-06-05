@@ -49,7 +49,17 @@ export function Footer() {
           style={{ fontSize: "11px", color: "rgba(255,255,255,0.15)" }}
           className="w-full sm:w-auto text-center sm:text-right"
         >
-          © {new Date().getFullYear()} Klusblok.nl · Alle rechten voorbehouden ·{" "}
+          © {new Date().getFullYear()} Klusblok.nl · Gemaakt door{" "}
+          <a
+            href="https://mhsmedia.nl"
+            target="_blank"
+            rel="noopener"
+            style={{ color: "rgba(255,255,255,0.4)" }}
+            className="hover:!text-[#f7c021] transition-colors"
+          >
+            mhsmedia.nl
+          </a>{" "}
+          ·{" "}
           <Link
             href="/admin-login"
             style={{ color: "rgba(255,255,255,0.25)" }}
