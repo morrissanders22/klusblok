@@ -8,12 +8,14 @@ export function Logo({
   size = 32,
   variant = "dark",
   priority = false,
+  className,
 }: {
   /** Height in px (width auto-scales) */
   size?: number;
   /** "dark" = native colors on light bg, "light" = inverted for dark bg, "black" = solid black silhouette */
   variant?: "dark" | "light" | "black";
   priority?: boolean;
+  className?: string;
 }) {
   const filter =
     variant === "light"
@@ -38,6 +40,7 @@ export function Logo({
       height={size}
       style={style}
       priority={priority}
+      className={className}
     />
   );
 }

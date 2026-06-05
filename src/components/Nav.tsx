@@ -26,24 +26,26 @@ export async function Nav() {
         }}
         className="relative"
       >
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-[52px] relative">
-          <div className="h-[120px] flex items-center justify-between gap-6">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-[52px] relative">
+          <div className="h-[72px] sm:h-[100px] lg:h-[120px] flex items-center justify-between gap-3 sm:gap-6">
             <Link
               href="/"
               className="flex-shrink-0 flex items-center"
               aria-label="Klusblok home"
             >
               <span
-                className="flex items-center justify-center rounded-full shadow-lg"
+                className="flex items-center justify-center rounded-full shadow-lg kb-nav-logo"
                 style={{
                   backgroundColor: "#f7c021",
-                  width: 110,
-                  height: 110,
-                  border: "4px solid #1e4f70",
-                  padding: 14,
+                  border: "3px solid #1e4f70",
                 }}
               >
-                <Logo size={60} variant="dark" priority />
+                <Logo
+                  size={36}
+                  variant="dark"
+                  priority
+                  className="kb-nav-logo-img"
+                />
               </span>
             </Link>
 
@@ -55,12 +57,11 @@ export async function Nav() {
               ))}
             </nav>
 
-            <div className="flex gap-2.5 items-center">
+            <div className="flex gap-2 sm:gap-2.5 items-center">
               {session?.user ? (
                 <Link
                   href="/dashboard"
-                  className="btn-yellow"
-                  style={{ padding: "10px 22px", fontSize: "13px" }}
+                  className="btn-yellow text-[12px] sm:text-[13px] !px-3 sm:!px-5 !py-2 sm:!py-2.5"
                 >
                   <Monitor size={14} /> Dashboard
                 </Link>
@@ -68,17 +69,17 @@ export async function Nav() {
                 <>
                   <Link
                     href="/login"
-                    className="btn-outline"
-                    style={{ padding: "10px 20px", fontSize: "13px" }}
+                    className="btn-outline text-[12px] sm:text-[13px] !px-3 sm:!px-5 !py-2 sm:!py-2.5"
                   >
                     <LogIn size={14} /> Login
                   </Link>
                   <Link
                     href="/jobs/new"
-                    className="btn-yellow"
-                    style={{ padding: "10px 22px", fontSize: "13px" }}
+                    className="btn-yellow text-[12px] sm:text-[13px] !px-3 sm:!px-5 !py-2 sm:!py-2.5"
                   >
-                    Plaats jouw klus <ArrowRight size={14} />
+                    <span className="hidden sm:inline">Plaats klus</span>
+                    <span className="sm:hidden">Klus</span>{" "}
+                    <ArrowRight size={14} />
                   </Link>
                 </>
               )}

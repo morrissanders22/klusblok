@@ -151,7 +151,7 @@ export default async function Home() {
           }}
         />
         <div className="relative max-w-[1200px] mx-auto px-6 sm:px-10 pt-16 pb-12 lg:pt-24 lg:pb-16 text-center">
-          <Reveal>
+          <Reveal eager>
             <p
               className="kb-eyebrow inline-flex items-center gap-2 mb-4"
               style={{ color: BLUE }}
@@ -159,7 +159,7 @@ export default async function Home() {
               <Sparkles size={12} /> Welkom bij Klusblok · Eerlijk klusplatform
             </p>
           </Reveal>
-          <Reveal delay={100}>
+          <Reveal eager>
             <h1
               className="kb-heading mx-auto max-w-4xl"
               style={{
@@ -172,7 +172,7 @@ export default async function Home() {
               <span style={{ color: BLUE }}>vindt jouw klus</span>
             </h1>
           </Reveal>
-          <Reveal delay={200}>
+          <Reveal eager>
             <p className="mt-6 mx-auto max-w-xl text-lg text-[#5c6878] leading-relaxed">
               De eerlijke marktplaats voor klussen. Plaats gratis je klus of
               vind nieuw werk bij jou in de buurt.
@@ -180,7 +180,7 @@ export default async function Home() {
           </Reveal>
 
           {/* TWO BIG OPTIONS — centered, side-by-side */}
-          <Reveal delay={300}>
+          <Reveal eager>
             <div className="mt-12 grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
               <BigCtaCard
                 Icon={HomeIcon}
@@ -204,7 +204,7 @@ export default async function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={400}>
+          <Reveal eager>
             <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-[#5c6878]">
               <Tag Icon={CheckCircle} text="100% gratis plaatsen" />
               <Tag Icon={Shield} text="KVK-geverifieerd" />

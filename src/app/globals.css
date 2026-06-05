@@ -118,6 +118,37 @@ h3,
   background: rgba(255, 255, 255, 0.08);
 }
 
+/* Responsive nav logo bubble */
+.kb-nav-logo {
+  width: 56px;
+  height: 56px;
+  padding: 8px;
+}
+.kb-nav-logo-img {
+  height: 28px !important;
+  width: auto !important;
+}
+@media (min-width: 640px) {
+  .kb-nav-logo {
+    width: 84px;
+    height: 84px;
+    padding: 12px;
+  }
+  .kb-nav-logo-img {
+    height: 48px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .kb-nav-logo {
+    width: 110px;
+    height: 110px;
+    padding: 14px;
+  }
+  .kb-nav-logo-img {
+    height: 60px !important;
+  }
+}
+
 .kb-card {
   background: white;
   border: 1px solid #dde4ed;
