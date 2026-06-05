@@ -1,7 +1,16 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { Hammer, ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
 import { LoginForm } from "../LoginForm";
+
+export const metadata: Metadata = {
+  title: "Inloggen als kluszoeker",
+  description:
+    "Log in als kluszoeker en bekijk openstaande klussen waar je op kunt reageren.",
+  alternates: { canonical: "/login/klusser" },
+  robots: { index: false, follow: true },
+};
 
 export default function KlusserLoginPage() {
   return (

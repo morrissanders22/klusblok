@@ -1,6 +1,13 @@
 import { Mail, MapPin } from "lucide-react";
 
-export const metadata = { title: "Contact — Klusblok" };
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Vragen over Klusblok? Mail naar info@klusblok.nl of neem contact op via het formulier. We helpen je graag verder met klussen plaatsen of vinden.",
+  alternates: { canonical: "/contact" },
+};
 
 export default function ContactPage() {
   return (

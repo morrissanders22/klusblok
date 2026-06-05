@@ -1,8 +1,17 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { Home, Hammer, ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
 
 import { LoginChoiceLinks } from "./LoginChoiceLinks";
+
+export const metadata: Metadata = {
+  title: "Inloggen",
+  description:
+    "Log in op je Klusblok-account. Klusplaatsers beheren hun klussen, kluszoekers reageren op nieuwe opdrachten in de buurt.",
+  alternates: { canonical: "/login" },
+  robots: { index: false, follow: true },
+};
 
 export default function LoginPage() {
   return (

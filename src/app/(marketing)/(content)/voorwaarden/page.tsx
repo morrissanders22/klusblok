@@ -1,4 +1,12 @@
-export const metadata = { title: "Algemene voorwaarden — Klusblok" };
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Algemene voorwaarden",
+  description:
+    "Algemene voorwaarden van Klusblok. Lees de gebruiksvoorwaarden voor klusplaatsers en kluszoekers.",
+  alternates: { canonical: "/voorwaarden" },
+  robots: { index: true, follow: true },
+};
 
 export default function VoorwaardenPage() {
   return (

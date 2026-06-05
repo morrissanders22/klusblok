@@ -1,5 +1,13 @@
 import Link from "next/link";
 import { Home, Hammer, ArrowRight, Check } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Gratis account aanmaken",
+  description:
+    "Maak gratis een Klusblok-account aan. Als klusplaatser plaats je je klus, als kluszoeker reageer je direct op nieuwe klussen in jouw regio.",
+  alternates: { canonical: "/register" },
+};
 
 export default function RegisterChoicePage() {
   return (

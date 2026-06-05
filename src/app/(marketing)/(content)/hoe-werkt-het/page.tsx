@@ -1,7 +1,20 @@
 import Link from "next/link";
 import { Home, Hammer, ArrowRight } from "lucide-react";
 
-export const metadata = { title: "Hoe werkt Klusblok — Klusblok" };
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Hoe werkt Klusblok? Klus plaatsen of vinden in 3 stappen",
+  description:
+    "Zo werkt Klusblok: particulieren plaatsen gratis hun klus, vakmensen reageren snel. Geen abonnement — alleen pay-per-lead voor klussers. Lees hoe simpel het is.",
+  alternates: { canonical: "/hoe-werkt-het" },
+  openGraph: {
+    title: "Hoe werkt Klusblok? Klus plaatsen of vinden in 3 stappen",
+    description:
+      "Particulieren plaatsen gratis. Vakmannen reageren snel. Geen abonnement. Zo werkt het pay-per-lead model van Klusblok.",
+    url: "/hoe-werkt-het",
+  },
+};
 
 export default function HoeWerktHetPage() {
   return (
