@@ -25,13 +25,7 @@ export default async function AppleIcon() {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={dataUrl}
-          alt="Klusblok"
-          width={120}
-          height={120}
-          style={{ filter: "brightness(0)" }}
-        />
+        <img src={dataUrl} alt="Klusblok" width={140} height={140} />
       </div>
     ),
     { ...size },

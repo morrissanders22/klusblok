@@ -25,13 +25,7 @@ export default async function Icon() {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={dataUrl}
-          alt="K"
-          width={42}
-          height={42}
-          style={{ filter: "brightness(0)" }}
-        />
+        <img src={dataUrl} alt="K" width={50} height={50} />
       </div>
     ),
     { ...size },
