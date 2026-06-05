@@ -918,12 +918,12 @@ function BigCtaCard({
       >
         {label}
       </p>
-      <h3
+      <h2
         className="kb-heading mb-2"
         style={{ fontSize: "26px", color: "#0f2535" }}
       >
         {title}
-      </h3>
+      </h2>
       <p className="text-sm text-[#5c6878] mb-5">{description}</p>
       <span
         className="inline-flex items-center gap-2 font-bold text-sm"

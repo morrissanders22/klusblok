@@ -77,9 +77,7 @@ export async function Nav() {
                     href="/jobs/new"
                     className="btn-yellow text-[12px] sm:text-[13px] !px-3 sm:!px-5 !py-2 sm:!py-2.5"
                   >
-                    <span className="hidden sm:inline">Plaats klus</span>
-                    <span className="sm:hidden">Klus</span>{" "}
-                    <ArrowRight size={14} />
+                    Klus plaatsen <ArrowRight size={14} />
                   </Link>
                 </>
               )}
